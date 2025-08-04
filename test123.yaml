@@ -2,4 +2,4 @@ service:
   name: gitx-test-123
   identifier: gitx-test-123
   orgIdentifier: harness
-  projectIdentifier: Shreyas_Test
+  projectIdentifier: ShreyasTest
