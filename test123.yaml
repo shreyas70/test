@@ -1,5 +1,5 @@
 service:
-  name: test123
-  identifier: test-123
+  name: gitx-test-123
+  identifier: gitx-test-123
   orgIdentifier: harness
-  projectIdentifier: Shreyas-Test
+  projectIdentifier: Shreyas_Test
