@@ -1,0 +1,5 @@
+service:
+  name: s12
+  identifier: s12
+  orgIdentifier: harness
+  projectIdentifier: ShreyasTest
