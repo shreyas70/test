@@ -1,5 +1,5 @@
 service:
   name: gitx-test-1231
-  identifier: gitx
+  identifier: git$x
   orgIdentifier: default
   projectIdentifier: shreyastestproject
