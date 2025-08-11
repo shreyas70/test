@@ -1,0 +1,44 @@
+template:
+  name: importedTemplate
+  identifier: importedTemplate
+  projectIdentifier: ShreyasTest
+  orgIdentifier: harness
+  account: px7xd_BFRCi-pfWPYXVjvw
+  versionLabel: v1
+  type: SecretManager
+  tags:
+    environment: qa
+    type: vault
+  description: Custom secret manager template for HashiCorp Vault integration
+  spec:
+    shell:
+      onDelegate:
+        script: |
+          # Fetch secret from Vault using cURL
+          curl -o secret.json -X GET https://vaultqa.harness.io/v1/<+spec.environmentVariables.engineName>/<+spec.environmentVariables.path> \
+            -H 'X-Vault-Token: <+secrets.getValue("vaultTokenOne")>'
+          
+          # Extract the secret value using jq
+          secret=$(jq -r '.data."<+spec.environmentVariables.key>"' secret.json)
+          
+          # Clean up the temporary file
+          rm -f secret.json
+          
+          # The variable 'secret' must contain the final secret value
+    environmentVariables:
+      - name: engineName
+        type: String
+        value: <+input>
+        description: Vault engine name (e.g., secret, kv)
+      - name: path
+        type: String
+        value: <+input>
+        description: Path to the secret in Vault
+      - name: key
+        type: String
+        value: <+input>
+        description: Key name of the secret to retrieve
+      - name: vaultUrl
+        type: String
+        value: https://vaultqa.harness.io
+        description: Vault server URL
