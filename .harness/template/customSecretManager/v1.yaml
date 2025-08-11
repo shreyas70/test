@@ -1,6 +1,6 @@
 template:
-  name: importedTemplate
-  identifier: importedTemplate
+  name: imported1Template
+  identifier: imported1Template
   projectIdentifier: ShreyasTest
   orgIdentifier: harness
   account: px7xd_BFRCi-pfWPYXVjvw
